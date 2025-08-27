@@ -53,6 +53,33 @@
         pkgs = import nixpkgs {
           inherit overlays system;
         };
+
+        nix = pkgs.nixVersions.nix_2_30;
+
+        generate-flamegraph-app = pkgs.writeShellApplication {
+          name = "generate-flamegraph";
+
+          runtimeInputs = [ nix pkgs.flamegraph ];
+
+          text = ''
+            WORKDIR=$(mktemp -d /tmp/nix-fun-calls-XXXXX)
+            nix eval --trace-function-calls --raw "$1" >"$WORKDIR/nix-function-calls.trace" 2>&1
+            ${nix.src}/contrib/stack-collapse.py "$WORKDIR/nix-function-calls.trace" > "$WORKDIR/nix-function-calls.folded"
+            flamegraph.pl "$WORKDIR/nix-function-calls.folded" > "$WORKDIR/nix-function-calls.svg"
+            echo "$WORKDIR/nix-function-calls.svg"
+          '';
+        };
+
+        time-app = pkgs.writeShellApplication {
+          name = "run-with-time";
+
+          runtimeInputs = [ nix pkgs.time ];
+
+          text = ''
+            command time -v nix eval --trace-function-calls --raw "$1"
+          '';
+        };
+
       in
       {
         packages = {
@@ -69,6 +96,23 @@
             ];
           };
         };
+
+        apps = rec {
+          default = generate-flamegraph;
+          generate-flamegraph = {
+            type = "app";
+            program = "${lib.getExe generate-flamegraph-app}";
+          };
+          speedscope = {
+            type = "app";
+            program = "${lib.getExe pkgs.speedscope}";
+          };
+          time = {
+            type = "app";
+            program = "${lib.getExe time-app}";
+          };
+        };
+
         formatter = pkgs.nixfmt-tree;
       }
     );
