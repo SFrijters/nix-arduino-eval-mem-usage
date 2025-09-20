@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
-    arduino-nix.url = "github:bouk/arduino-nix";
+    arduino-nix.url = "github:SFrijters/arduino-nix";
     arduino-indexes = {
       url = "github:bouk/arduino-indexes";
       flake = false;

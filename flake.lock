@@ -3,11 +3,11 @@
     "arduino-indexes": {
       "flake": false,
       "locked": {
-        "lastModified": 1756080098,
-        "narHash": "sha256-sKQygDEbAQD9v9cjWcuZlvT8yWcsmqCQJwO5KVjx3WE=",
+        "lastModified": 1758326459,
+        "narHash": "sha256-JlIiUy5uz0gL2YEO7hIx9h/wuRX8E4DXbVNTbtlOGYY=",
         "owner": "bouk",
         "repo": "arduino-indexes",
-        "rev": "e5c92a9d40d15b993449425ab85339c6ea3542a0",
+        "rev": "3a1433aa3892e96da263e17b3cfdaa3896161010",
         "type": "github"
       },
       "original": {
@@ -18,26 +18,26 @@
     },
     "arduino-nix": {
       "locked": {
-        "lastModified": 1735332078,
-        "narHash": "sha256-PGZVUTg8BQKL1QgTr3Fcia8RBYYqsbHbx9lIunqdmxQ=",
-        "owner": "bouk",
+        "lastModified": 1758371181,
+        "narHash": "sha256-DNPT7xDF/STfySv1nWywV3ipjlWNO8HsVGr59wPQHBg=",
+        "owner": "SFrijters",
         "repo": "arduino-nix",
-        "rev": "dd6c6f4de7d8d8bb460508de911c120dfc35b709",
+        "rev": "86f0bbfaf7d5329fb6c3ea6c227307be3f9ba428",
         "type": "github"
       },
       "original": {
-        "owner": "bouk",
+        "owner": "SFrijters",
         "repo": "arduino-nix",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1756162924,
-        "narHash": "sha256-fNuteL1rkpHdorX0dEbEN5idFb763sTz5Hx9CGcWziQ=",
+        "lastModified": 1758371333,
+        "narHash": "sha256-GS8W1s3EyM1/HX6X8zxdxFqDpUESgaJRJqUnxPHollw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "86eba14c1a25b6f54b64121ce2bf599a261a193d",
+        "rev": "4010ebb4e8bac045e72f70f2e6fd588e769440bc",
         "type": "github"
       },
       "original": {
